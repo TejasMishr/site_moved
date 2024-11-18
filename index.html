@@ -44,9 +44,44 @@
           <span style="color: red">Site is under Maintenance. <br /></span>
           Please download the Samagra App to access the resources.
         </p>
-        <!-- <p class="text-lg text-center">
-          Please click the link below to continue.
-        </p> -->
+        <p
+          class="text-lg text-center font-bold tracking-wide"
+          style="color: #2c53b4"
+        >
+          Site will be live in
+          <span id="countdown" class="text-lg font-bold text-red-500"></span>
+          <script>
+            let countDownDate = new Date("Nov 19, 2024 17:00:00").getTime();
+            let now = new Date().getTime();
+            let distance = countDownDate - now;
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor(
+              (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            let minutes = Math.floor(
+              (distance % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML =
+              days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            let x = setInterval(function () {
+              now = new Date().getTime();
+              distance = countDownDate - now;
+              days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+              );
+              minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              document.getElementById("countdown").innerHTML =
+                hours + "h " + minutes + "m " + seconds + "s ";
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+          </script>
+        </p>
         <div class="mt-4 text-center flex justify-center items-center gap-2">
           <a
             href="https://play.google.com/store/apps/details?id=com.indigle.samagra"
